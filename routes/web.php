@@ -20,9 +20,11 @@ Route::get('Pratiche/', function () {
 });
 
 // routes/web.php
+
 use App\Http\Controllers\PracticeController;
 
-Route::get('/practices', [PracticeController::class, 'index']);
+Route::resource('practices', PracticeController::class);
+
 
 
 

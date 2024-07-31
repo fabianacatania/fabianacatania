@@ -1,4 +1,3 @@
-<!-- resources/views/practices/index.blade.php -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -22,6 +21,7 @@
 </head>
 <body>
     <h1>Pratiche Presentate</h1>
+    <a href="{{ route('practices.create') }}">Inserisci Nuova Pratica</a>
     <table>
         <thead>
             <tr>
@@ -29,6 +29,7 @@
                 <th>Nome</th>
                 <th>Cognome</th>
                 <th>CUAA</th>
+                <th>Azioni</th>
             </tr>
         </thead>
         <tbody>
@@ -38,6 +39,15 @@
                     <td>{{ $practice->nome }}</td>
                     <td>{{ $practice->cognome }}</td>
                     <td>{{ $practice->cuaa }}</td>
+                    <td>
+                        <a href="{{ route('practices.show', $practice->id) }}">Visualizza</a>
+                        <a href="{{ route('practices.edit', $practice->id) }}">Modifica</a>
+                        <form action="{{ route('practices.destroy', $practice->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">Elimina</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
