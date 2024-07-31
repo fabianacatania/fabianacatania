@@ -14,3 +14,15 @@ Route::get('/', function () {
 Route::get('users/', function () {
     return view('profile');
 });
+
+Route::get('Pratiche/', function () {
+    return view('PratichePresentate');
+});
+
+// routes/web.php
+use App\Http\Controllers\PracticeController;
+
+Route::get('/practices', [PracticeController::class, 'index']);
+
+
+
