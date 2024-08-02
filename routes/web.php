@@ -27,4 +27,19 @@ Route::resource('practices', PracticeController::class);
 
 
 
+// Rotta per visualizzare il modulo di caricamento
+use App\Http\Controllers\FileUploadController;
+
+Route::get('upload', function () {
+    return view('upload');
+});
+
+// Rotta per gestire il caricamento del file
+Route::post('upload', [FileUploadController::class, 'store'])->name('upload');
+
+
+
+
+
+
 
